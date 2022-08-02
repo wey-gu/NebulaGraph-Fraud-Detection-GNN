@@ -1,5 +1,7 @@
 ## Arch and Flow
 
+![GraphSAGE_FraudDetection](https://user-images.githubusercontent.com/1651790/182301784-21850dac-0d47-4dd5-b66f-a28b87fe9d4d.svg)
+
 ### Model Training
 
 Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/Train_GraphSAGE.ipynb for details.
