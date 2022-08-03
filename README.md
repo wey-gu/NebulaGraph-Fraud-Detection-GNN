@@ -190,3 +190,37 @@ docker run --rm -ti \
 ```
 
 Then refer to https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/ for Training Model and the Fraud Web Service itself.
+
+
+
+### Playground of Real-Time Fraud Monitor
+
+
+
+```bash
+git clone https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN.git
+cd NebulaGraph-Fraud-Detection-GNN/src
+
+python3 -m pip install -r requirements.txt
+
+export NG_ENDPOINTS="127.0.0.1:9669";
+export FLASK_ENV=development;
+export FLASK_APP=wsgi;
+
+# run backend
+cd fraudd_backend
+python3 -m flask run --reload
+```
+
+From another terminal
+
+```bash
+cd NebulaGraph-Fraud-Detection-GNN/src
+cd fraudd_frontend
+
+# sudo apt install npm
+
+npm install
+npm run serve
+```
+

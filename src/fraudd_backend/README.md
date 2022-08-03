@@ -5,7 +5,7 @@ First, install and run the backend with `flask run`.
 ```bash
 python3 -m pip install -r requirements.txt
 
-export NG_ENDPOINTS="10.1.1.168:9669";
+export NG_ENDPOINTS="127.0.0.1:9669";
 export FLASK_ENV=development;
 export FLASK_APP=wsgi;
 

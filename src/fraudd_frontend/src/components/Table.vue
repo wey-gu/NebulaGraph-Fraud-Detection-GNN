@@ -18,7 +18,7 @@ export default defineComponent({
     },
     setup() {
 
-        const socket = io('http://localhost:9000');
+        const socket = io('http://localhost:15000');
 
         const rows = ref([]);
         let isLoading = ref(false);

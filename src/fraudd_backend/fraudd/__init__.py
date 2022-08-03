@@ -57,7 +57,7 @@ def create_instance():
     app.config['ENVRIONMENT'] = 'development'
     CORS(app, supports_credentials=True)
     socketio = SocketIO(
-        app, cors_allowed_origins=['http://10.1.1.127:8080'],
+        app, cors_allowed_origins=['http://10.1.1.127:8080', 'http://nebula-demo.siwei.io:8080'],
         logger=True, engineio_logger=True)
 
 
