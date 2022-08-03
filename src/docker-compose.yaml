@@ -4,9 +4,15 @@ services:
     hostname: nginx
     volumes:
       - ${PWD}/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${PWD}/fraudd_frontend/dist:/data:ro
     ports:
       - "15000:15000"
+      - "8080:8080"
     networks:
       - nebula-net
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+networks:
+  nebula-net:
+    external: true

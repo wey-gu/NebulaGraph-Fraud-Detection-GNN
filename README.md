@@ -195,12 +195,24 @@ Then refer to https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/mai
 
 ### Playground of Real-Time Fraud Monitor
 
+Get your machine's IP (not the 127.0.0.1), say it's `10.0.0.5`.
 
+```bash
+export MY_IP="10.0.0.5"
+```
+
+Run Backend:
 
 ```bash
 git clone https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN.git
 cd NebulaGraph-Fraud-Detection-GNN/src
 
+# ADD MY_IP into CORS & Frontend file, nginx.conf
+sed -i "s/nebula-demo.siwei.io/$MY_IP/g" fraudd_backend/fraudd/__init__.py
+sed -i "s/nebula-demo.siwei.io/$MY_IP/g" fraudd_frontend/src/components/Table.vue
+sed -i "s/nebula-demo.siwei.io/$MY_IP/g" nginx.conf
+
+# install dep of backend
 python3 -m pip install -r requirements.txt
 
 export NG_ENDPOINTS="127.0.0.1:9669";
@@ -209,10 +221,19 @@ export FLASK_APP=wsgi;
 
 # run backend
 cd fraudd_backend
-python3 -m flask run --reload
+
+python3 -m flask run --reload --host=0.0.0.0
 ```
 
-From another terminal
+```bash
+# verify
+$ curl localhost:5000/api
+{
+  "status": "ok"
+}
+```
+
+From another terminal, build frontend:
 
 ```bash
 cd NebulaGraph-Fraud-Detection-GNN/src
@@ -221,6 +242,31 @@ cd fraudd_frontend
 # sudo apt install npm
 
 npm install
-npm run serve
+npm run build
 ```
+
+From another terminal, run Nginx:
+
+```bash
+cd NebulaGraph-Fraud-Detection-GNN/src
+docker-compose up -d
+```
+
+```bash
+# end-to-end verify backend
+curl -X POST localhost:15000/api/add_review \
+        -d '{"vertex_id": "2049"}' \
+        -H 'Content-Type: application/json'
+```
+
+```bash
+# return value
+{
+  "is_fraud": false
+}
+```
+
+From web browser 👉🏻 http://10.0.0.5:8080/
+
+> You could check my demo: http://nebula-demo.siwei.io:8080
 

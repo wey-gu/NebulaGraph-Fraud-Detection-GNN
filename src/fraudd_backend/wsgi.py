@@ -8,5 +8,5 @@ application = app = create_instance()
 export NG_ENDPOINTS="10.1.1.168:9669";
 export FLASK_ENV=development;
 export FLASK_APP=wsgi;
-python3 -m flask run --reload
+python3 -m flask run --reload --host=0.0.0.0
 """
