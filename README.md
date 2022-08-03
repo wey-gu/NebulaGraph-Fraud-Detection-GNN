@@ -1,6 +1,6 @@
 ## Arch and Flow
 
-![GraphSAGE_FraudDetection](https://user-images.githubusercontent.com/1651790/182301784-21850dac-0d47-4dd5-b66f-a28b87fe9d4d.svg)
+![GraphSAGE_FraudDetection](https://user-images.githubusercontent.com/1651790/182623863-de5c8ba6-5107-4707-8122-d2130085d5ac.svg)
 
 ### Model Training
 
