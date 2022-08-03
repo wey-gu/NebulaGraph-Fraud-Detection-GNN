@@ -1,0 +1,8 @@
+Flask==2.0.1
+Flask-Cors==3.0.10
+Flask-SocketIO==5.2.0
+torch==1.12.0
+dgl==0.9.0
+PyYAML==5.4.1
+git+https://github.com/vesoft-inc/nebula-python.git@8c328c534413b04ccecfd42e64ce6491e09c6ca8
+git+https://github.com/wey-gu/nebula-dgl.get@f7a8226a28c4f481a2eb28161904025a807b9b7f
