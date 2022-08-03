@@ -71,6 +71,7 @@ Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebo
 
 Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/Inference_API.ipynb for details.
 
+#### Backend
 - Input: a new review
 - Output: is_fraud prediction
 - Flow:
@@ -109,6 +110,44 @@ Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebo
 │                        `─'         `─' │        └──────────────────────┘      
 └────────────────────────────────────────┘                                      
 ```
+
+#### Frontend
+
+As the review request being sent to Graph Database and Inference API, when fraud predict is responded to the Inference API caller, in parallel, the result will be broadcast to Real Time Fraud Monitor Dashboards, too.
+
+The dashbard are tables subscribing to the flow of reviews sending in, and when some of the records are highlighted with hi risk in fraud, corresponding party will be notified and inovlved for follow-up actions.
+
+```asciiarmor
+         ┌────────────────────────────────────────────────────────────────────┐         
+         │   ┌──────────────────────────────────────────────────────────┐     │         
+         │   │        Real-Time Online Fraud Monitor Web Service        │     │         
+         │   └──────────────────────────────────────────────────────────┘     │         
+         │                                                                    │         
+         │   ┌────┬────┬──────┬────┬────┬────┬────┬────┬────┬────┬──────┐     │         
+         │   │    │    │      │    │    │    │    │    │    │    │  OK  │     │         
+         │   ├────┼────┼──────┼────┼────┼────┼────┼────┼────┼────┼──────┤     │         
+         │   │    │    │      │    │    │    │    │    │    │    │  OK  │     │         
+         │   ├────┼────┼──────┼────┼────┼────┼────┼────┼────┼────┼──────┤     │         
+         │   │    │    │      │    │    │    │    │    │    │    │ NOK  │     │         
+         │   └────┴────┴──────┴────┴────┴────┴────┴────┴────┴────┴──────┘     │         
+         └─────────────────────────────────▲──────────────────────────────────┘         
+                                           ┃                                            
+┌───────────────────────┐                  ┃                                            
+│  New Review/Requests  │                  ┃                                            
+│Generated Continuously │                  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓               
+└───────────────────────┘                                               ┃               
+            │                                                           ┃               
+            │                                                           ┃               
+            │ ┌─────────────────────┐                          ┌────────┻────────┐      
+            │ │                     │                          │                 │      
+            │ │                     │                          │                 │      
+            └▶│ Transaction Record  ├──────2. Fraud Risk ─────▶│  Inference API  │◀────┐
+              │                     │◀────Prediction with ─────┤                 │     │
+              │                     │        Sub Graph         │                 │     │
+              └─────────────────────┘                          └─────────────────┘     │
+...
+```
+
 
 ## Graph Model and Data Set
 
