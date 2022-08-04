@@ -118,6 +118,7 @@ As the review request being sent to Graph Database and Inference API, when fraud
 The dashbard are tables subscribing to the flow of reviews sending in, and when some of the records are highlighted with hi risk in fraud, corresponding party will be notified and inovlved for follow-up actions.
 
 Demo Video 👉🏻:
+
 https://user-images.githubusercontent.com/1651790/182651965-d489a218-36a6-40c9-9fab-ba288e8d959a.mov
 
 ```asciiarmor
