@@ -69,7 +69,9 @@ Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebo
 
 ### Online Fraud Inference System
 
-Check https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/Inference_API.ipynb for details.
+- For how it works, check [notebooks/Inference_API.ipynb](https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/Inference_API.ipynb) for details.
+
+- For its refererence implementation, see [src/fraudd_backend](https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/src/fraudd_backend), [src/fraudd_frontend](https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/src/fraudd_frontend)
 
 #### Backend
 - Input: a new review
@@ -193,11 +195,12 @@ docker run --rm -ti \
  --config /root/importer.yaml
 ```
 
-Then refer to https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/ for Training Model and the Fraud Web Service itself.
-
+Then refer to [notebooks/*](https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/notebooks/) for Training Model and the Real-time Fraud Detection Web Service itself, and refer to [src/*](https://github.com/wey-gu/NebulaGraph-Fraud-Detection-GNN/tree/main/src/) for the Real-time Fraud Detection Web Service reference implementation.
 
 
 ### Playground of Real-Time Fraud Monitor
+
+Follow this, you should be able to run the Real-time Fraud Detection Web Service with my trained model being loaded.
 
 Get your machine's IP (not the 127.0.0.1), say it's `10.0.0.5`.
 
