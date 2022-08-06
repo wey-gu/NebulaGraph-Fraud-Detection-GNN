@@ -4,3 +4,9 @@ __pycache__
 .vscode
 # macOS
 .DS_Store
+
+# model
+*.model
+
+# jupyter
+.ipynb_checkpoints
